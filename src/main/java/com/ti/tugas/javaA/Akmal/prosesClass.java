@@ -76,4 +76,26 @@ public class prosesClass {
             hdiskon = jumbayar*diskon/100;
         }
     }
+    
+    public String getUang(double ucustomer, double tharga){
+        double kembalian = 0.0;
+        
+        if(ucustomer >tharga){
+            kembalian = ucustomer - tharga;
+            return  "Uang kembalian Rp."  +kembalian;
+        }else if(ucustomer <tharga){
+             kembalian = tharga - ucustomer;
+            return   "Jumlah Kekurangan Rp." +kembalian;
+        }else{
+            return  "Uang anda sudah pas" ;
+        }
+    }
+    
+    public Double getbayar(String customer){
+        
+        Double bayar = Double.valueOf(customer);
+        
+        return bayar;
+    
+    }
 }

@@ -27,17 +27,20 @@ public class Controllertugas {
         String nbuah = data.getParameter("var_namabuah");
         String hbuah = data.getParameter("var_hargakilo");
         String jbuah = data.getParameter("var_jumlahbeli");
+        String customer = data.getParameter("var_uang");
         
         Double hargabuah = pc.getharga(jbuah);
         Double jumlahbuah = pc.getjumlah(hbuah);
+        Double bayar = pc.getbayar(customer);
         Double jumlahbayar = pc.getjumlahbayar(hargabuah, jumlahbuah);
         String disc = pc.getdisc(jumlahbayar);
+        
         Double hargadiskon = pc.gethargadisc(jumlahbayar, Integer.valueOf(disc));
         Double totalbayar =  pc.gettotalbayar(jumlahbayar, hargadiskon);
-        pc.gettdiskon(totalbayar, jumlahbayar, hargabuah, Integer.valueOf(disc));
+        String back = pc.getUang(bayar,totalbayar );
         
-        
-        
+        buah.addAttribute("kembalian", back);
+        buah.addAttribute("uang",customer);
         buah.addAttribute("name",nbuah);
         buah.addAttribute("price",hbuah);
         buah.addAttribute("kilo",jbuah);
